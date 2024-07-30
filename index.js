@@ -1,16 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 
-// strm 模式: 本地绝对路径、网络流媒体地址
-const strmMode = "remote"; // 'local' | 'remote'
-// 本地文件路径
-const sourcePath = path.resolve("\\\\Nas001\\共享文件\\影音\\XXX");
-// 网络流媒体地址
-const remoteUrl = "http://192.168.31.32:8998/媒体库/XXX/";
-// strm 文件保存路径
-const targetPath = path.resolve("\\\\Nas001\\共享文件\\影音\\xxxStrm");
-// 是否覆盖已经存在的文件
-const overwrite = false; // true | false
+// 从环境变量中获取参数
+const strmMode = process.env.STRM_MODE || "remote"; // 'local' | 'remote'
+const sourcePath = path.resolve(process.env.SOURCE_PATH || "\\\\Nas001\\共享文件\\影音\\XXX");
+const remoteUrl = process.env.REMOTE_URL || "http://192.168.31.32:8998/媒体库/XXX/";
+const targetPath = path.resolve(process.env.TARGET_PATH || "\\\\Nas001\\共享文件\\影音\\xxxStrm");
+const overwrite = process.env.OVERWRITE === "true"; // true | false
 
 // 支持的媒体文件扩展名
 const mediaExtensions = [".mp4", ".mkv", ".avi", ".mov", ".flv", ".wmv", ".rmvb", ".webm"];
