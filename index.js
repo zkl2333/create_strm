@@ -9,7 +9,7 @@ const targetPath = path.resolve(process.env.TARGET_PATH || "\\\\Nas001\\共享�
 const overwrite = process.env.OVERWRITE === "true"; // true | false
 
 // 支持的媒体文件扩展名
-const mediaExtensions = [".mp4", ".mkv", ".avi", ".mov", ".flv", ".wmv", ".rmvb", ".webm"];
+const mediaExtensions = [".mp4", ".mkv", ".avi", ".mov", ".flv", ".wmv", ".rmvb", ".webm", ".iso"];
 
 // 计算目录中所有文件的数量
 const countFiles = (dir) => {
